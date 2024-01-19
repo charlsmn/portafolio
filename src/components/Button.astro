@@ -1,0 +1,24 @@
+---
+const { enlace, titulo } = Astro.props;
+---
+
+<a
+  href={enlace}
+  title={titulo}
+  class="relative flex items-center bg-color-primary text-white font-semibold py-2 px-6 rounded-3xl uppercase transition-all hover:scale-110 hover:shadow-2xl"
+>
+  <span class="relative z-10 flex items-center gap-4">
+    <slot />
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0.906494 6.74999H9.28399L5.62399 10.41C5.33149 10.7025 5.33149 11.1825 5.62399 11.475C5.91649 11.7675 6.38899 11.7675 6.68149 11.475L11.624 6.53249C11.9165 6.23999 11.9165 5.76749 11.624 5.47499L6.68899 0.52499C6.54887 0.384551 6.35863 0.305626 6.16024 0.305626C5.96186 0.305626 5.77162 0.384551 5.63149 0.52499C5.33899 0.81749 5.33899 1.28999 5.63149 1.58249L9.28399 5.24999H0.906494C0.493994 5.24999 0.156494 5.58749 0.156494 5.99999C0.156494 6.41249 0.493994 6.74999 0.906494 6.74999Z"
+        fill="white"></path>
+    </svg>
+  </span>
+</a>

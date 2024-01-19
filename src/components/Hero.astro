@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import Avatar from "@assets/images/Carlos-Mancilla-Avatar.png";
+import HeroGradient from "@assets/images/hero-gradient.astro";
+import Circulo from "@assets/images/circulo.astro";
+import Circle from "@assets/images/Circle.astro";
+import Dots from "@assets/images/dots.astro";
+import SocialPill from "@components/SocialPill.astro";
+import LinkedInIcon from "@assets/icons/LinkedInIcon.astro";
+import GitHubIcon from "@assets/icons/GitHubIcon.astro";
+import MailIcon from "@assets/icons/MailIcon.astro";
+---
+
+<section class="overflow-hidden max-w-full">
+  <div class="absolute top-0 left-0 ruido-gradient"><HeroGradient /></div>
+  <Circulo
+    width="42"
+    height="42"
+    clase="opacity-100 absolute top-[20%] right-3"
+  />
+
+  <Circulo
+    width="42"
+    height="42"
+    clase="opacity-100 absolute top-[20%] left-3"
+  />
+
+  <Circulo
+    width="144"
+    height="144"
+    clase="opacity-10 absolute top-[30%] right-10"
+  />
+
+  <Circle
+    width="20"
+    height="20"
+    fill="var(--color-primary)"
+    clase="absolute top-[30%] left-[20%]"
+  />
+
+  <Circle
+    width="20"
+    height="20"
+    fill="var(--color-primary)"
+    clase="absolute top-[50%] right-[20%]"
+  />
+  <Dots clase="absolute top-[30%] left-0" />
+  <Dots clase="absolute top-[10%] right-0" />
+  <div class="container m-auto mt-36 relative">
+    <div class="flex items-center justify-center flex-wrap flex-col">
+      <Image
+        src={Avatar}
+        alt="Carlos Mancilla Avatar"
+        class="drop-shadow-2xl hover:scale-95 transition-all"
+      />
+      <h1 class="text-pretty text-center">
+        <span class="text-2xl font-bold text-color-primary block"
+          >¡Hola!, soy Carlos Mancilla</span
+        >
+        <strong class="text-6xl font-bold text-color-titulo"
+          >Diseñador UI & UX <br />y Desarrollador Web</strong
+        >
+      </h1>
+      <p class="mt-5 text-center text-pretty max-w-2xl text-xl">
+        <strong>Más de 10 años de experiencia</strong>, especializado en el
+        diseño de interfaces de usuario, sitios web y aplicaciones móviles, así
+        como en su desarrollo.
+      </p>
+      <nav class="flex gap-4 mt-5 mb-3">
+        <SocialPill href="https://linkedin.com/in/carlos-mancilla">
+          <LinkedInIcon class="size-4 md:size-6" />
+          LinkedIn
+        </SocialPill>
+        <SocialPill href="https://linkedin.com/in/charlsmn">
+          <GitHubIcon class="size-4 md:size-6" />
+          GitHub
+        </SocialPill>
+        <SocialPill href="mailto:contacto@carlosmancilla.com">
+          <MailIcon class="size-4 md:size-6" />
+          contacto@carlosmancilla.com
+        </SocialPill>
+      </nav>
+    </div>
+    <h2 class="font-bold text-color-titulo text-3xl">Proyectos destacados</h2>
+    <div class="flex items-center justify-center"></div>
+  </div>
+</section>

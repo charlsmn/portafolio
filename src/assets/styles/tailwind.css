@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+:root {
+    --color-fondo: #0A071B;
+    --color-titulo: #e5e7eb;
+    --color-texto: #AEBED5;
+    --color-primary: #FF3466;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto); 
+}
+
+.ruido-gradient:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(/noise.webp);
+    opacity: .12;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+}

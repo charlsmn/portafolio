@@ -1,0 +1,51 @@
+---
+import Logo from "@assets/images/Logo.astro";
+import Circle from "@assets/images/Circle.astro";
+import Button from "@components/Button.astro";
+import Link from "@components/LinkHeader.astro";
+---
+
+<header class="fixed top-0 w-full left-0 z-10 backdrop-blur transition-all">
+  <div class="container flex items-center justify-between m-auto py-3">
+    <div class="w-60">
+      <a href="/" title="Inicio">
+        <Logo />
+        <p class="absolute opacity-0">Logo Carlos Mancilla</p>
+      </a>
+    </div>
+    <nav>
+      <ul class="flex items-center gap-3 font-semibold text-pretty">
+        <li>
+          <Link href="/sobre-mi" text="Sobre mi" />
+        </li>
+        <li>
+          <Circle width="4" height="4" fill="#E5E7EB" />
+        </li>
+        <li>
+          <Link href="/proyectos" text="Proyectos" />
+        </li>
+        <li>
+          <Circle width="4" height="4" fill="#E5E7EB" />
+        </li>
+        <li>
+          <Link href="/blog" text="Blog" />
+        </li>
+      </ul>
+    </nav>
+    <div class="w-60 flex items-center justify-end">
+      <Button enlace="/contacto">Contáctame</Button>
+    </div>
+  </div>
+</header>
+
+<script>
+  const header = document.querySelector("header");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 0) {
+      header.classList.add("bg-slate-950/75");
+    } else {
+      header.classList.remove("bg-slate-950/75");
+    }
+  });
+</script>
