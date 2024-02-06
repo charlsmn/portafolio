@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+const {
+  categoria,
+  titulo,
+  fecha,
+  descripcion,
+  autor,
+  imagen,
+  alt,
+  url,
+  transition,
+} = Astro.props;
+---
+
+<article
+  class="group bg-[#E6E6F0]/5 border border-[#E6E6F0]/20 backdrop-blur-sm p-6 rounded-3xl transition-all hover:bg-[#E6E6F0]/15 hover:backdrop-blur-lg hover:-translate-y-1 hover:shadow-2xl hover:border-[#E6E6F0]/50"
+>
+  <span class="text-sm opacity-70 font-bold">{categoria}</span>
+  <h2 class="text-3xl font-bold mt-12 group-hover:text-white">{titulo}</h2>
+  <p class="pretty text-sm mt-1 opacity-70">{descripcion}</p>
+  <a
+    href={url}
+    class="mt-6 block text-sm font-bold transition-all group-hover:text-color-primary"
+    >Ver Proyecto</a
+  >
+</article>

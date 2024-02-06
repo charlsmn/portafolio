@@ -41,11 +41,13 @@ import Link from "@components/LinkHeader.astro";
 <script>
   const header = document.querySelector("header");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 0) {
-      header.classList.add("bg-slate-950/75");
-    } else {
-      header.classList.remove("bg-slate-950/75");
-    }
-  });
+  if (header) {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 0) {
+        header.classList.add("bg-slate-950/75");
+      } else {
+        header.classList.remove("bg-slate-950/75");
+      }
+    });
+  }
 </script>

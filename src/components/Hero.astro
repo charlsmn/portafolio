@@ -1,4 +1,6 @@
 ---
+import { getCollection } from "astro:content";
+
 import { Image } from "astro:assets";
 import Avatar from "@assets/images/Carlos-Mancilla-Avatar.png";
 import HeroGradient from "@assets/images/hero-gradient.astro";
@@ -9,6 +11,9 @@ import SocialPill from "@components/SocialPill.astro";
 import LinkedInIcon from "@assets/icons/LinkedInIcon.astro";
 import GitHubIcon from "@assets/icons/GitHubIcon.astro";
 import MailIcon from "@assets/icons/MailIcon.astro";
+import ProjectCard from "./ProjectCard.astro";
+
+const allProjects = await getCollection("projects");
 ---
 
 <section class="overflow-hidden max-w-full">
@@ -54,7 +59,7 @@ import MailIcon from "@assets/icons/MailIcon.astro";
         class="drop-shadow-2xl hover:scale-95 transition-all"
       />
       <h1 class="text-pretty text-center">
-        <span class="text-2xl font-bold text-color-primary block"
+        <span class="text-3xl font-bold text-color-primary block"
           >¡Hola!, soy Carlos Mancilla</span
         >
         <strong class="text-6xl font-bold text-color-titulo"
@@ -71,7 +76,7 @@ import MailIcon from "@assets/icons/MailIcon.astro";
           <LinkedInIcon class="size-4 md:size-6" />
           LinkedIn
         </SocialPill>
-        <SocialPill href="https://linkedin.com/in/charlsmn">
+        <SocialPill href="https://github.com/charlsmn">
           <GitHubIcon class="size-4 md:size-6" />
           GitHub
         </SocialPill>
@@ -81,7 +86,33 @@ import MailIcon from "@assets/icons/MailIcon.astro";
         </SocialPill>
       </nav>
     </div>
-    <h2 class="font-bold text-color-titulo text-3xl">Proyectos destacados</h2>
-    <div class="flex items-center justify-center"></div>
+    <h2 class="font-bold text-color-titulo text-3xl mb-6 mt-20 flex items-end">
+      Proyectos destacados <Circle
+        width="10"
+        height="10"
+        fill="var(--color-primary)"
+      />
+    </h2>
+    <div class="flex items-center justify-center gap-6 relative">
+      <Dots clase="absolute -top-[20%] right-0 left-0 mx-auto" />
+      <Circle
+        width="40"
+        height="40"
+        fill="var(--color-primary)"
+        clase="absolute -top-[5%] left-[30%]"
+      />
+      {
+        allProjects
+          .filter((project) => project.data.featured)
+          .map((project) => (
+            <ProjectCard
+              titulo={project.data.title}
+              url={`projects/${project.slug}`}
+              descripcion={project.data.description}
+              categoria={project.data.category}
+            />
+          ))
+      }
+    </div>
   </div>
 </section>
